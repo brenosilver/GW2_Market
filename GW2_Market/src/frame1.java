@@ -18,20 +18,20 @@ public class frame1 extends JFrame implements ActionListener {
 
 	JPanel pane = new JPanel();
 	//FlowLayout layout = new FlowLayout(5,10,10);
-	GridLayout layout = new GridLayout();
+	FlowLayout layout = new FlowLayout(5, 10, 10);
 	
 	
 	JButton pressme = new JButton("Run Crawler");
 	JRadioButton opt1 = new JRadioButton("Supply bag", true);
 	JRadioButton opt2 = new JRadioButton("Stolen Supplies bag", false);
-	static TextArea text = new TextArea("", 10, 70);
+	static TextArea text = new TextArea("", 10, 47);
 	
 	ButtonGroup group = new ButtonGroup();
 	
 	String bagText;
 	
 	frame1(){
-		super("Guild Wars 2 Bag Market"); setBounds(100,200,800,250);
+		super("Guild Wars 2 Bag Market"); setBounds(100,200,380,250);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   // Container con = this.getContentPane(); // inherit main frame
 	    setLayout(layout);
@@ -43,6 +43,7 @@ public class frame1 extends JFrame implements ActionListener {
 	   // con.add(pane);    // JPanel containers default to FlowLayout
 	    pressme.addActionListener(this);
 	    pressme.setMnemonic('P'); // associate hotkey to button
+	    
 	    
 	    super.getContentPane().add(opt1);
 	    super.getContentPane().add(opt2);
