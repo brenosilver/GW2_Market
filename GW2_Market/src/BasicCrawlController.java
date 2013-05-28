@@ -102,14 +102,12 @@ public class BasicCrawlController {
                 boolean resumable = config.isResumableCrawling();
                 
 
-                // my change
+                // Create env for DB del
                 EnvironmentConfig envConfig = new EnvironmentConfig();
                 envConfig.setAllowCreate(true);
                 envConfig.setTransactional(resumable);
                 envConfig.setLocking(resumable);
-                
-                
-                // end my change
+                // End Create env for DB del
 
  
 
@@ -121,7 +119,6 @@ public class BasicCrawlController {
                
                 
                 if(which_bag  == 1){
-                    //  Float[] drop_rate = new Float[] {0.065f, 0.0678f, 0.1816f, 0.271f, 0.0759f, 0.0244f, 0.0596f, 0.0678f, 0.0623f, 0.0515f, 0.0732f }; // Supply bag
                     drop_rate = new Float[] {0.065f, 0.0678f, 0.1816f, 0.271f, 0.0759f, 0.0244f, 0.0596f, 0.0678f, 0.0623f, 0.0515f, 0.0732f }; // Supply bag
                     MAX = 11;
                 	
@@ -140,7 +137,6 @@ public class BasicCrawlController {
                 }
                 
                 if(which_bag  == 2){ // Stolen Supplies bag
-                    // Float[] drop_rate = {0.0744f, 0.0f, 0.0694f, 0.1389f, 0.1677f, 0.0843f, 0.0992f, 0.0754f, 0.0f, 0.0665f, 0.0635f, 0.0883f, 0.0724f }; //Stolen Supply bag
                     drop_rate = new Float[] {0.0744f, 0.0f, 0.0694f, 0.1389f, 0.1677f, 0.0843f, 0.0992f, 0.0754f, 0.0f, 0.0665f, 0.0635f, 0.0883f, 0.0724f }; //Stolen Supply bag
                     MAX = 13;
                     
@@ -172,7 +168,7 @@ public class BasicCrawlController {
                 
                 frame1.text.append("Title errors: " + not_found);
                 
-                //start my change
+                //Deleting Db
                 File envHome = new File(config.getCrawlStorageFolder() + "/frontier");
                 
                 if (!envHome.exists())         
@@ -186,8 +182,7 @@ public class BasicCrawlController {
                 
                 if(!resumable) 
                 	deleteExistingDatabases(env);
-
-// en my change
+                // End Deleting Db
                 
                 
                 
